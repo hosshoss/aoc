@@ -10,7 +10,7 @@ async function ShowMeTheMoney() {
         if(intNumber) {        
             temp+= intNumber;
         } else {
-            max=getMax(max,temp);
+            max=Math.max(max,temp);
             temp=0;
         }
       });
@@ -20,11 +20,5 @@ async function ShowMeTheMoney() {
   }
 }
 
-//function to get max value of two inputs
-function getMax(a, b) {
-    if(a>b)
-        return a;
-    return b;
-}
 
 ShowMeTheMoney();

@@ -8,7 +8,7 @@ async function ShowMeTheMoney() {
     data.split('\n').map(Number => {
         intNumber = parseInt(Number);
         if(intNumber) {
-                      temp+= intNumber;
+            temp+= intNumber;
         } else {
             result.push(temp);
             temp = 0;
