@@ -9,18 +9,18 @@ async function ShowMeTheMoney() {
       intNumber = parseInt(Number);
       if (intNumber) {
         temp += intNumber;
-      } else {
+      } else { // one elf done
         result.push(temp);
         temp = 0;
       }
     });
     result.sort();
     temp = 0;
+    //loop on last 3 elfs
     for (var i = 1; i <= 3; i++) {
       temp += result[result.length - i];
-      console.log(i + " >> " + result[result.length - i]);
     }
-    console.log(temp);
+      console.log('part two answer = ', temp); 
   } catch (err) {
     console.log(err);
   }
