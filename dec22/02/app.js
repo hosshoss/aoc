@@ -16,6 +16,7 @@ async function ShowMeTheMoney() {
   }
 }
 
+
 //decode XYZ to ABC
 function decodeMove(move) {
   switch (move) {
@@ -33,16 +34,16 @@ function decodeMove(move) {
 function calculateScore(appon, my) {
   // if draw
   if (appon == my)
-    return 3 + getmyMovePoints(my);
+    return 3 + getMyMovePoints(my);
   // if won  
   else if (((appon == 'A' && my == 'B') || (appon == 'B' && my == 'C') || (appon == 'C' && my == 'A')))
-    return 6 + getmyMovePoints(my);
+    return 6 + getMyMovePoints(my);
   // if lose
   else
-    return 0 + getmyMovePoints(my);
+    return 0 + getMyMovePoints(my);
 }
 
-function getmyMovePoints(my) {
+function getMyMovePoints(my) {
   switch (my) {
     case 'A':
       return 1;
