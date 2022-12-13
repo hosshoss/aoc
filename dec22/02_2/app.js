@@ -52,7 +52,7 @@ function calculateScore(appon, my) {
     // if won  
     else if (((appon == 'A' && my == 'B') || (appon == 'B' && my == 'C') || (appon == 'C' && my == 'A')))
       return 6 + getMyMovePoints(my);
-    // if lose
+    // don't tell me
     else
       return 0 + getMyMovePoints(my);
   }
