@@ -7,13 +7,10 @@ async function ShowMeTheMoney() {
         data.split('\n').map(line => {
             var opponent_move = line.split(' ')[0];
             var my_move = line.split(' ')[1];
-            var stepScore = 0;
             var decoded_my_move = decodeMove(opponent_move, my_move);
-            stepScore = calculateScore(opponent_move, decoded_my_move);
-            console.log(opponent_move, my_move, decoded_my_move, stepScore);
-            totalScore += stepScore;
+            totalScore += calculateScore(opponent_move, decoded_my_move);
         });
-        console.log(totalScore);
+        console.log('part two answer:', totalScore);
     } catch (err) {
         console.log(err);
     }
@@ -21,7 +18,7 @@ async function ShowMeTheMoney() {
 
 function decodeMove(appon, move) {
     switch (move) {
-        case 'X':
+        case 'X': // should lose
             {
                 if (appon == 'A')
                     return 'C';
@@ -30,11 +27,11 @@ function decodeMove(appon, move) {
                 if (appon == 'C')
                     return 'B';
             }
-        case 'Y':
+        case 'Y': // should draw
             {
                 return appon;
             }
-        case 'Z':
+        case 'Z': // should win
             {
                 if (appon == 'A')
                     return 'B';
@@ -49,13 +46,16 @@ function decodeMove(appon, move) {
 }
 
 function calculateScore(appon, my) {
+    // if draw
     if (appon == my)
-        return 3 + getmyMovePoints(my);
+      return 3 + getmyMovePoints(my);
+    // if won  
     else if (((appon == 'A' && my == 'B') || (appon == 'B' && my == 'C') || (appon == 'C' && my == 'A')))
-        return 6 + getmyMovePoints(my);
+      return 6 + getmyMovePoints(my);
+    // if lose
     else
-        return 0 + getmyMovePoints(my);
-}
+      return 0 + getmyMovePoints(my);
+  }
 
 function getmyMovePoints(my) {
     switch (my) {

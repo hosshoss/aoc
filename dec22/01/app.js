@@ -9,12 +9,12 @@ async function ShowMeTheMoney() {
       intNumber = parseInt(Number);
       if (intNumber) {
         temp += intNumber;
-      } else {
+      } else { // one elf done
         max = Math.max(max, temp);
         temp = 0;
       }
     });
-    console.log(max);
+    console.log('part one answer:', max);
   } catch (err) {
     console.log(err);
   }
