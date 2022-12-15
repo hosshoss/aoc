@@ -1,5 +1,14 @@
 const fs = require('fs/promises');
 
+function encodeLetters(letter) {
+  //get ascii code for the letter
+  let code = letter.charCodeAt(0);
+  if (code >= 97) // if letter is lower
+    return code - 96;
+  else
+    return code - 38;
+}
+
 async function ShowMeTheMoney() {
   try {
     const data = await fs.readFile('input.txt', { encoding: 'utf8' });
@@ -32,12 +41,3 @@ async function ShowMeTheMoney() {
 }
 
 ShowMeTheMoney();
-
-function encodeLetters(letter) {
-  //get ascii code for the letter
-  let code = letter.charCodeAt(0);
-  if (code >= 97) // if letter is lower
-    return code - 96;
-  else
-    return code - 38;
-}
